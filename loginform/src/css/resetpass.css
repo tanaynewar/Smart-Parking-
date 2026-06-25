@@ -1,0 +1,47 @@
+.reset-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f7fb;
+}
+
+.reset-container {
+  width: 420px;
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.reset-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #185fa5;
+}
+
+.reset-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reset-container input {
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+}
+
+.reset-container button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #185fa5;
+  color: white;
+  cursor: pointer;
+}
+
+.reset-message {
+  text-align: center;
+  margin-top: 15px;
+}

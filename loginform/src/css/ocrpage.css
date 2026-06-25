@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ── Page shell ── */
+.ocr-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.ocr-page h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* ── Upload Card ── */
+.ocr-upload-card {
+  background: #fff;
+  border: 0.5px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+/* ── Upload Area ── */
+.ocr-upload-area {
+  position: relative;
+  border: 1.5px dashed #d1d5db;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #f9fafb;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.15s;
+  margin-bottom: 16px;
+}
+
+.ocr-upload-area:hover {
+  border-color: #185fa5;
+}
+
+.ocr-placeholder {
+  text-align: center;
+  padding: 32px 20px;
+  pointer-events: none;
+}
+
+.ocr-placeholder-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.ocr-placeholder p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.ocr-placeholder span {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.ocr-preview-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Invisible file input covers the whole upload area */
+.ocr-file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Error ── */
+.ocr-error {
+  font-size: 13px;
+  color: #dc2626;
+  margin-bottom: 14px;
+}
+
+/* ── Form Actions ── */
+.ocr-form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  height: 38px;
+  padding: 0 22px;
+  background: #185fa5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #0c447c;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  height: 38px;
+  padding: 0 22px;
+  background: #fff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  border-color: #185fa5;
+  color: #185fa5;
+}
+
+/* ── Result Card ── */
+.ocr-result-card {
+  background: #fff;
+  border: 0.5px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.ocr-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ocr-result-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Number plate badge */
+.ocr-plate-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: #1e3a5f;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Details Grid ── */
+.ocr-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+
+.ocr-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ocr-detail-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.ocr-detail-value {
+  font-size: 14px;
+  color: #111;
+  font-weight: 500;
+}
+
+/* Reuse badges from adminpage.css */
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.approved { background: #d1fae5; color: #065f46; }
+.badge.pending  { background: #fef3c7; color: #92400e; }
+.badge.rejected { background: #fee2e2; color: #991b1b; }
+
+/* ── Result Actions ── */
+.ocr-result-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .ocr-page {
+    padding: 20px 14px;
+  }
+
+  .ocr-result-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ocr-form-actions,
+  .ocr-result-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+/* Shared Action Buttons (same style as QR page) */
+.ocr-action-btn {
+  min-width: 140px;
+  height: 42px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: #185fa5;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ocr-action-btn:hover {
+  background: #0c447c;
+  transform: translateY(-1px);
+}
+
+.ocr-form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.ocr-action-btn {
+  width: 100%;
+}

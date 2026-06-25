@@ -1,0 +1,319 @@
+.transaction-container {
+  padding: 24px;
+}
+.transaction-container h1 {
+font-size: 22px;
+font-weight: 500;
+text-align: center;
+margin-bottom: 24px;
+color: #111;
+}
+/* Form card */
+.transaction-form-card {
+background: #fff;
+border: 0.5px solid #e5e5e5;
+border-radius: 12px;
+padding: 20px 24px;
+margin-bottom: 24px;
+}
+.transaction-form {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 12px;
+align-items: start;
+}
+.form-field {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.form-field label {
+font-size: 12px;
+color: #6b7280;
+height: 18px;
+display: flex;
+align-items: center;
+}
+.transaction-form input,
+.transaction-form select {
+width: 100%;
+height: 36px;
+padding: 0 10px;
+border: 0.5px solid #d1d5db;
+border-radius: 8px;
+font-size: 14px;
+color: #111;
+background: #fff;
+outline: none;
+box-sizing: border-box;
+}
+.transaction-form input:focus,
+.transaction-form select:focus {
+border-color: #378add;
+box-shadow: 0 0 0 2px rgba(55, 138, 221, 0.15);
+}
+.transaction-form .btn-submit-wrap {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.transaction-form .btn-submit-wrap::before {
+content: "";
+height: 18px;
+display: block;
+}
+.transaction-form button[type="submit"] {
+height: 36px;
+width: 100%;
+padding: 0 20px;
+background: #185fa5;
+color: #fff;
+border: none;
+border-radius: 8px;
+font-size: 14px;
+cursor: pointer;
+white-space: nowrap;
+}
+.transaction-form button[type="submit"]:hover {
+background: #0c447c;
+}
+
+/* ===== Filters row (search / status / type) — matches Admin page ===== */
+.transaction-container .filters {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 16px;
+}
+.transaction-container .filters input,
+.transaction-container .filters select {
+height: 36px;
+padding: 0 12px;
+border: 0.5px solid #d1d5db;
+border-radius: 8px;
+font-size: 14px;
+color: #111;
+background: #fff;
+outline: none;
+box-sizing: border-box;
+}
+.transaction-container .filters input {
+flex: 1;
+min-width: 220px;
+}
+.transaction-container .filters input:focus,
+.transaction-container .filters select:focus {
+border-color: #378add;
+box-shadow: 0 0 0 2px rgba(55, 138, 221, 0.15);
+}
+
+/* ===== Meta row (results count + rows-per-page) ===== */
+.transaction-container .meta-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 12px;
+font-size: 13px;
+color: #6b7280;
+}
+.transaction-container .meta-row .per-page {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.transaction-container .meta-row select {
+height: 32px;
+padding: 0 8px;
+border: 0.5px solid #d1d5db;
+border-radius: 8px;
+font-size: 13px;
+color: #111;
+background: #fff;
+outline: none;
+}
+
+/* Table card */
+.transaction-table-card {
+background: #fff;
+border: 0.5px solid #e5e5e5;
+border-radius: 12px;
+overflow: hidden;
+}
+.transaction-table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+}
+.transaction-table th {
+padding: 12px 16px;
+text-align: left;
+font-weight: 500;
+font-size: 13px;
+color: #6b7280;
+background: #f9fafb;
+border-bottom: 0.5px solid #e5e5e5;
+}
+.transaction-table th.sortable {
+cursor: pointer;
+user-select: none;
+}
+.transaction-table th.sortable:hover {
+color: #185fa5;
+}
+.transaction-table td {
+padding: 12px 16px;
+color: #111;
+border-bottom: 0.5px solid #f0f0f0;
+}
+.transaction-table tbody tr:last-child td {
+border-bottom: none;
+}
+.transaction-table tbody tr:hover {
+background: #f9fafb;
+}
+.transaction-table .table-msg {
+text-align: center;
+padding: 24px;
+color: #6b7280;
+font-size: 14px;
+}
+
+/* Status badge */
+.status-badge {
+display: inline-block;
+padding: 3px 10px;
+border-radius: 999px;
+font-size: 12px;
+font-weight: 500;
+}
+.status-success { background: #eaf3de; color: #3b6d11; }
+.status-failed  { background: #fcebeb; color: #a32d2d; }
+.status-pending { background: #faeeda; color: #854f0b; }
+
+/* Method badge */
+.method-badge {
+display: inline-block;
+padding: 3px 10px;
+border-radius: 999px;
+font-size: 12px;
+font-weight: 500;
+background: #e6f1fb;
+color: #185fa5;
+}
+
+/* Delete button */
+.delete-btn {
+padding: 5px 14px;
+font-size: 13px;
+border: 0.5px solid #f09595;
+border-radius: 8px;
+color: #a32d2d;
+background: transparent;
+cursor: pointer;
+}
+.delete-btn:hover {
+background: #fcebeb;
+}
+
+.type-credit {
+background: #eaf3de;
+color: #3b6d11;
+}
+.type-debit {
+background: #fcebeb;
+color: #a32d2d;
+}
+
+/* Fixed wallet method display in form */
+.fixed-method-badge {
+height: 36px;
+display: flex;
+align-items: center;
+padding: 0 12px;
+border: 0.5px solid #d1d5db;
+border-radius: 8px;
+font-size: 14px;
+color: #185fa5;
+background: #e6f1fb;
+font-weight: 500;
+box-sizing: border-box;
+}
+
+/* Payment method badge variants */
+.type-wallet {
+background: #ede9fe;
+color: #5b21b6;
+}
+
+/* Payment type badge variants (cash / upi / card / net_banking) */
+.type-cash {
+background: #fef9c3;
+color: #854d0e;
+}
+.type-upi {
+background: #dcfce7;
+color: #166534;
+}
+.type-card {
+background: #dbeafe;
+color: #1e40af;
+}
+.type-netbanking {
+background: #fce7f3;
+color: #9d174d;
+}
+.type-other {
+background: #f3f4f6;
+color: #6b7280;
+}
+
+.status-dropdown {
+padding: 5px 10px;
+border-radius: 999px;
+border: none;
+font-size: 12px;
+font-weight: 500;
+cursor: pointer;
+}
+.status-dropdown.status-success {
+background: #eaf3de;
+color: #3b6d11;
+}
+.status-dropdown.status-failed {
+background: #fcebeb;
+color: #a32d2d;
+}
+.status-dropdown.status-pending {
+background: #faeeda;
+color: #854f0b;
+}
+
+/* ===== Pagination — matches Admin page ===== */
+.transaction-table-card .pagination {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+padding: 16px;
+border-top: 0.5px solid #e5e5e5;
+}
+.transaction-table-card .pagination .page-btn {
+height: 34px;
+padding: 0 16px;
+border: 0.5px solid #d1d5db;
+border-radius: 8px;
+background: #fff;
+color: #111;
+font-size: 13px;
+cursor: pointer;
+}
+.transaction-table-card .pagination .page-btn:hover:not(:disabled) {
+background: #f9fafb;
+border-color: #185fa5;
+color: #185fa5;
+}
+.transaction-table-card .pagination .page-btn:disabled {
+color: #c1c1c1;
+cursor: not-allowed;
+}
