@@ -61,14 +61,16 @@ const HomePage = () => {
             scan your QR to enter — all in one place.
           </p>
 
-          <div className="hero-cta-row">
-            <button className="start-btn" onClick={() => navigate('/login')}>
-              Get Started
-            </button>
-            <button className="outline-btn" onClick={() => navigate('/register')}>
-              Register
-            </button>
-          </div>
+        {!userData && (
+  <div className="hero-cta-row">
+    <button className="start-btn" onClick={() => navigate('/login')}>
+      Get Started
+    </button>
+    <button className="outline-btn" onClick={() => navigate('/register')}>
+      Register
+    </button>
+  </div>
+)}
 
           <div className="feature-chips">
             <div className="chip" onClick={() => navigate('/userpage')}> Digital Wallet</div>

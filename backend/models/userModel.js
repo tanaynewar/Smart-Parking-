@@ -1,4 +1,5 @@
 import db from '../config/db.js';
+import { faceRegister } from '../controllers/adminController.js';
 const ALLOWED_SORTS = {
   "id-greatest": "id DESC",
   "id-least": "id",
@@ -325,8 +326,29 @@ async getUserById(userId) {
     );
 
     return rows[0] || null;
+},
+async faceRegisterModel(id, descriptor){
+await db.query(
+        `UPDATE users
+         SET face_descriptor = ?, face_registered = true
+         WHERE id = ?`,
+        [JSON.stringify(descriptor), id]
+    );
+  },
+  async getAdminFaceDescriptor(id)  {
+    const [rows] = await db.query(
+        `SELECT face_descriptor
+         FROM users
+         WHERE id = ?`,
+         [id]
+
+    );
+
+    return rows[0];
 }
-};
+  
+}
+
 
 
 

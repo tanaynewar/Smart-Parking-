@@ -105,9 +105,13 @@ const Registerpage = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
+    let finalValue = value
+    if(id==="car_number"){
+      finalValue = finalValue.toUpperCase()
+    }
     setFormData({
       ...formData,
-      [id]: value,
+      [id]: finalValue,
     })
   };
 

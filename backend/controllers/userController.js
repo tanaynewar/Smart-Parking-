@@ -22,6 +22,7 @@ export const getUserData = async (req,res)=>{
                 status: user.status,
         qr_code: user.qr_code,
         vehicle_type: user.vehicle_type,
+        face_registered: user.face_registered
             }
         })
         

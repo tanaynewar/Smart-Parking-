@@ -3,6 +3,7 @@ import '../css/loginPage.css'
 import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { USER_ROLE } from '../utils/constant'
 const LoginPage = () => {
   const {backendUrl,setIsLoggedin,getUserData} = useContext(AppContext)
 
@@ -73,19 +74,26 @@ const handleSubmit = async (e) => {
        if(data.success){
         setIsLoggedin(true)
         getUserData()
-        navigate('/userpage')
-       }else{
-        alert(data.message)
-       }
+        const {data:responsedata}= await axios.get(backendUrl + '/api/user/data')
 
-    
-    
-   } catch (error) {
-    alert(error.message);
-    alert(error.response?.data?.message);
-    
-   }
- 
+       const user = responsedata.userData;
+
+      if (user.role === USER_ROLE.ADMIN) {
+        if (user.face_registered) {
+          navigate('/verify-face');
+        } else {
+          navigate('/face-register');
+        }
+      } else {
+        navigate('/');
+      }
+
+    } else {
+      alert(data.message);
+    }
+  } catch (error) {
+    alert(error.response?.data?.message || error.message);
+  }
 
 
   

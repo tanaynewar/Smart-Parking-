@@ -13,6 +13,9 @@ import ResetPasswordPage from './pages/ResetPasswordPage'
 import { USER_ROLE } from './utils/constant'
 import ParkingFees from './pages/ParkingFee'
 import EditProfile from './pages/EditProfile'
+import RegisterFace from './pages/AdminFaceRegister'
+import AdminFaceLogin from './pages/AdminPageLogin'
+
 const App = () => {
   return (
     <Routes>
@@ -63,6 +66,30 @@ const App = () => {
         element={
           <ProtectedRoute allowedRoles={[USER_ROLE.ADMIN]}>
             <OCRPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/face-register"
+        element={
+          <ProtectedRoute allowedRoles={[USER_ROLE.ADMIN]}>
+            <RegisterFace />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/verify-face"
+        element={
+          <ProtectedRoute allowedRoles={[USER_ROLE.ADMIN]}>
+            <AdminFaceLogin />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/ocr"
+        element={
+          <ProtectedRoute allowedRoles={[USER_ROLE.ADMIN]}>
+            <AdminFaceLogin />
           </ProtectedRoute>
         }
       />

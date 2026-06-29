@@ -27,4 +27,4 @@ app.use('/api/ocr', ocrRouter)
 app.use("/api/qr", qrRouter);
 app.use("/api/fees",parkingFeeRouter);
 
-app.listen(port,"0.0.0.0",()=> console.log(`Server started on PORT:${port}`));
+app.listen(port,"0.0.0.0", ()=> console.log(`Server started on PORT:${port}`));

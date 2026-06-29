@@ -101,6 +101,71 @@ const  rejectUser = async (req,res)=>{
         return sendError(res, 500, error.message)
         }
     }
+    const faceRegister = async (req,res) => {
 
+    const { descriptor } = req.body;
 
-export {getAllUsers,approveUser,rejectUser}
+    await userModel.faceRegisterModel(req.user.id, descriptor)
+
+    res.json({
+        success: true
+    });
+}
+const verifyFace = async (req, res) => {
+    try {
+        const { descriptor } = req.body;
+
+        if (!descriptor) {
+            return res.status(400).json({
+                success: false,
+                message: "Face descriptor is required"
+            });
+        }
+
+        const admin =
+            await userModel.getAdminFaceDescriptor(req.user.id);
+
+        if (!admin) {
+            return res.status(404).json({
+                success: false,
+                message: "Admin not found"
+            });
+        }
+
+        const storedDescriptor =
+            admin.face_descriptor;
+
+        let sum = 0;
+
+        for (
+            let i = 0;
+            i < descriptor.length;
+            i++
+        ) {
+            sum += Math.pow(
+                descriptor[i] -
+                    storedDescriptor[i],
+                2
+            );
+        }
+
+        const distance = Math.sqrt(sum);
+
+        const isMatched = distance < 0.6;
+
+        return res.status(200).json({
+            success: isMatched,
+            distance
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Verification failed"
+        });
+    }
+};
+
+export {getAllUsers,approveUser,rejectUser,faceRegister,verifyFace}
